@@ -12,4 +12,4 @@ github_username:  jgrancell
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments

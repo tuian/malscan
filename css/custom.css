@@ -1,0 +1,21 @@
+/* Custom CSS */
+.bash-root-prompt {
+	font-weight: 900;
+	color: #f5f5f5;
+}
+
+.bash-red {
+ 	color: #ac2925;
+}
+
+.bash-green {
+	color: #01b43a;
+}
+
+.bash-blue {
+	color: #70DBDB;
+}
+
+.bash-yellow {
+	color: yellow;
+}
