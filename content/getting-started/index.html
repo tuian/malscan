@@ -12,7 +12,7 @@ permalink: /getting-started/
 
 <div>
 
-	<h2>System Requirements</h2>
+	<h2 id="#system-requirements">System Requirements</h2>
 
 	<div>
 
@@ -29,6 +29,7 @@ permalink: /getting-started/
 				<li>git</li>
 				<li>file</li>
 				<li>bash</li>
+				<li>postfix or exim (if using email notifications)</li>
 			</ul>
 
 		</div>
@@ -82,6 +83,8 @@ permalink: /getting-started/
 
 			</div>
 
+			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
+
 		</div>
 
 	</div>
@@ -99,7 +102,7 @@ permalink: /getting-started/
 				<ul>
 					<li>Debian 8.2 (Jessie)</li>
 					<li>Debian 7.9 (Wheezy)</li>
-					<li>Ubuntu Server 14.04/li>
+					<li>Ubuntu Server 14.04</li>
 				</ul>
 
 			</div>
@@ -114,6 +117,67 @@ permalink: /getting-started/
 
 			The installation script is not unattended. There are a number of prompts that that are required to complete installation. Once installation has been completed, however, the core configuration file in <span class="file-block">/usr/local/share/malscan/conf.malscan</span> can be included in Puppet or any other configuration management for easier infrastructure-wide installation.
 
+			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
+
+		</div>
+
+	</div>
+
+	<div>
+		
+		<h4>Manual Installation - Any Linux OS</h4>
+
+		<div style="margin-bottom: 10px">
+			
+			Malscan can be manually installed on any operating system that successfully meets the <a href="#system-requirements">System Requirements</a> listed above. This can be done by following the steps outlined below.
+
+			<div style="margin-top: 5px">
+
+				<ol>
+					<li>Install all software dependencies with your OS's package manager (or from source)</li>
+					<li style="list-style-type: none">
+						<ul>
+							<li>ClamAV 0.98+</li>
+							<li>Git</li>
+							<li>File</li>
+							<li>Bash</li>
+							<li>Email software (if using email notifications</li>
+							<li>
+								<ul>
+									<li>Postfix</li>
+									<li>Exim</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Create the required malscan directories.</li>
+					<li style="list-style-type: none">
+						<ul>
+							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan</span></li>
+							<!--<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/bin</span></li>
+							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/logs</span></li>
+							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/quarantine</span></li>
+							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/signatures</span></li>-->
+						</ul>
+					</li>
+					<li>Clone the Malscan git repository into the <span class="file-block">/usr/local/share/malscan</span> directory.</li>
+					<li style="list-style-type: none">
+						<ul>
+							<li style="margin-top: 5px; margin-bottom: 5px">
+								<span class="file-block">cd /usr/local/share/malscan && git clone https://github.com/jgrancell/malscan.git .</span>
+							</li>
+							<li>Don't overlook the period at the end of that command; ensure you include it so the clone ends up in the right directory.</li>
+						</ul>
+					</li>
+					<li>Copy the <span class="file-block">/usr/local/share/malscan/conf.malscan-example</span> and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
+					<li>Add the <span class="file-block">/usr/local/share/malscan/bin</span> path to your terminal's $PATH, or symlink the binaries within into a directory already in your $PATH</li>
+				</ol>
+
+
+			</div>
+
+			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
+
 		</div>
 
 	</div>
@@ -125,6 +189,97 @@ permalink: /getting-started/
 
 <div>
 
-	<h2>Basic Usage</h2>
+	<h2 id="basic-usage">Basic Usage</h2>
+
+	<div>
+
+		A full list of Malscan commands can be found by using the <span class="file-block">malscan -h</span> command within the command line.
+		
+		<div class="code-block">
+			<div>
+				<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -h
+			</div>
+			<div>
+				<span class="bash-blue">Malscan version 1.6.0, released on November 16 2015</span><br>
+				Usage: malscan [options] /path/to/scanned/directory
+			</div>
+			<div style="margin-left: 6%">
+			   <span class="bash-green">-c [option]</span>  -- displays a current configuration option value<br>
+			   <span class="bash-green">-c [option] [value]</span>  -- updates the value of a configuration option to a new value<br>
+		       <span class="bash-green">-h</span>  -- display this help text<br>
+		       <span class="bash-green">-l</span>  -- line scan mode<br>
+		       <span class="bash-green">-m</span>  -- mime scan mode<br>
+		       <span class="bash-green">-n</span>  -- send email notification.<br>
+		       <span class="bash-green">-q</span>  -- quarantine any malicious files identified via the -s command<br>
+		       <span class="bash-green">-r</span>  -- report a file to central malscan servers and add to signatures<br>
+		       <span class="bash-green">-s</span>  -- basic malware scan<br>
+		       <span class="bash-green">-t</span>  -- tripwire scan. identifies any files that are not in the whitelist, or have changed since whitelisting<br>
+		       <span class="bash-green">-u</span>  -- updates the core application and all signature databases<br>
+		       <span class="bash-green">-v</span>  -- display core application and signature database version information<br>
+		       <span class="bash-green">-w</span>  -- adds specified file tree to whitelist.
+			</div>
+			<div>
+				<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div>
+
+		<h4>Configuration</h4>
+
+		Individual configuration options are accessible in two ways, through either the configuration file found at <span class="file-block">/usr/local/share/malscan/conf.malscan</span> or
+		through the <span class="file-block"> malscan -c</span> command.
+
+		Using the <span class="file-block">malscan -c</span> command allows you to pass no arguments, a single argument, or two arguments.
+
+		<ul>
+			
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c</span>: Show all Malscan configuration options and their values</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option]</span>: Shows a single configuration option and its value</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option] [value]</span>: Changes the specified configuration option to the new specified value</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option] --description</span>: Provides a description about a Malscan configuration option</li>
+
+		</ul>
+
+	</div>
+
+	<div>
+		
+	<h4>Your First Scan</h4>
+
+		Scans are run using any of the scan-mode flags: <span class="file-block">-s</span>,<span class="file-block">-m</span>,<span class="file-block">-l</span>,<span class="file-block">-t</span>
+
+		<ul>
+			
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-s</span>: A basic malware scan, leveraging over 50,000 known malware signatures.</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-m</span>: A mime-type scan, comparing the mime-type of a file against it's extension</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-l</span>: A string length scan, checking for unusually long strings</li>
+			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-t</span>: A tripwire scan, comparing the current file tree against a previous whitelisting</li>
+			<li style="list-style-type: none">
+				<ul>
+					<li>Note that the tripwire scan will return every single file not currently whitelisted as suspicious.</li>
+					<li>Because of this, only run the <span class="file-block">-t</span> scan once you have set up a malscan whitelist.</li>
+					<li>You can find more information about tripwire whitelisting in the <a href="/documentation/tripwire/">Tripwire Documentation</a></li>
+				</ul>
+			</li>
+
+		</ul>
+
+		<div>
+			
+			Scans are run by passing any combination of flags: <span class="file-block">malscan -ms /path/to/target/directory/for/scanning</span>.
+		
+		</div>
+
+		<div style="margin-top: 10px">
+
+			You can find more information about each scan-type within the <a href="/documentation/scan-modes/">Scan Modes Documentation</a>
+		
+		</div>
+
+	</div>
 
 </div>
