@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Malscan is a light weight, powerful linux malware scanner designed
   for desktop, webservers, and linux infrastrucutre. Malscan is open
   source and free software licensed under the MIT License.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "malscan" # the subpath of your site, e.g. /blog/
 url: "https://jgrancell.github.io" # the base hostname & protocol for your site
 twitter_username: jgrancell
 github_username:  jgrancell
