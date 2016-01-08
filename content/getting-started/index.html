@@ -1,9 +1,130 @@
 ---
 layout: page
-title: Getting Started
 permalink: /getting-started/
 ---
+<!DOCTYPE html>
 
-### Linux and Malscan: A Perfect Match
+<div>
 
-Malscan can be run on any type of Linux machine; desktops, webservers, database servers, or any infrastructure server can benefit
+<h1 style="font-size: 40px">Getting Started With Malscan</h1>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2>System Requirements</h2>
+
+	<div>
+
+		<div>
+
+			Malscan has a number of dependencies, many of which are already pre-installed on most minimal Linux installations. Required packages are:
+
+		</div>
+
+		<div style="margin-top: 5px">
+
+			<ul>
+				<li>ClamAV 0.98+</li>
+				<li>git</li>
+				<li>file</li>
+				<li>bash</li>
+			</ul>
+
+		</div>
+
+		<div>
+			
+			In addition to these packages, Malscan requires root SSH or terminal access to the machine that will be running Malscan.
+
+		</div>
+
+	</div>
+
+</div>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2>Installation</h2>
+
+	<div style="margin-bottom: 10px">
+		
+		Automated installation options are available for Red Hat Enterprise Linux and its derivatves as well as Debian and its derivatives. 
+
+	</div>
+
+	<div>
+		
+		<h4>Red Hat Enterprise Linux / CentOS</h4>
+
+		<div style="margin-bottom: 10px">
+			
+			Yum repositories are available for the following:
+
+			<div style="margin-top: 5px">
+
+				<ul>
+					<li>Red Hat Enterprise Linux 6.8</li>
+					<li>Red Hat Enterprise Linux 7.2</li>
+					<li>CentOS 6.8</li>
+					<li>CentOS 7.2</li>
+				</ul>
+
+			</div>
+
+			To automatically configure the Malscan repository for your RHEL/CentOS installation, run the command below.
+
+			<div class="code-block">
+				
+			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> wget https://www.malscan.org/static/repo-setup.sh | bash
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div>
+		
+		<h4>Debian / Ubuntu</h4>
+
+		<div style="margin-bottom: 10px">
+			
+			An automatic installation script is available for both Ubuntu and Debian, and may function on any other Debian-based operating systems. It has been tested for functionality on the operating systems listed below.
+
+			<div style="margin-top: 5px">
+
+				<ul>
+					<li>Debian 8.2 (Jessie)</li>
+					<li>Debian 7.9 (Wheezy)</li>
+					<li>Ubuntu Server 14.04/li>
+				</ul>
+
+			</div>
+
+			To install Malscan using the installation script, run the command below.
+
+			<div class="code-block">
+				
+			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> wget https://www.malscan.org/static/debian-install.sh | bash
+
+			</div>
+
+			The installation script is not unattended. There are a number of prompts that that are required to complete installation. Once installation has been completed, however, the core configuration file in <span class="file-block">/usr/local/share/malscan/conf.malscan</span> can be included in Puppet or any other configuration management for easier infrastructure-wide installation.
+
+		</div>
+
+	</div>
+
+
+</div>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2>Basic Usage</h2>
+
+</div>
