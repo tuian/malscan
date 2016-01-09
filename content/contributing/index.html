@@ -1,0 +1,201 @@
+---
+layout: page
+permalink: /contribute/
+---
+<!DOCTYPE html>
+
+<div>
+
+<h1 style="font-size: 40px">Contributing to Malscan</h1>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2 id="#system-requirements">Bug Reports, Enhancements and Feature Requests</h2>
+
+	<div>
+
+		<div>
+
+			Application bugs, new feature requests, and improvements can all be submitted through the <a href="https://github.com/jgrancell/malscan/issues" target="blank">GitHub Issue Tracker</a>. Please read through each section below before submitting an issue within the issue tracker.
+
+		</div>
+
+		<div>
+			
+			<h4 style="margin-top: 10px">Bug Reports</h4>
+
+			<div>
+				
+				If you believe you've found with a bug within malscan, please ensure that it is actually within malscan. Issues with ClamAV signature databases or the clamscan or freshclam binaries should be reported to ClamAV instead.
+
+			</div>
+
+			<div>
+				
+				When submitting a bug report on the issue tracker, ensure you have included the following:
+
+				<ul>
+					
+					<li>Your current version of malscan, found using the <span class="file-block">malscan -v</span> command.</li>
+					<li>The current signature database versions, if applicable, found using the <span class="file-block">malscan -v</span> command.</li>
+					<li>A full output from the command line of any errors that you have received, and a description of what you were attempting to do.</li>
+					<li>Anything different or unusual with file permissions/ownership/structure that may help pinpoint errors.</li>
+
+				</ul>
+
+			</div>
+
+			<div>
+				
+				All bug reports are confirmed and replicated. If we are unable to replicate your specific error, we may require additional information. Because of this, please ensure that you are actively monitoring your submitted bug report in case additional information is required.
+
+			</div>
+
+		</div>
+
+		<div>
+			
+			<h4 style="margin-top: 10px">Feature Requests & Enhancements</h4>
+
+			<div>
+				
+				If you have an idea for a new feature or an enhancement to an existing feature, you can submit a feature request or enhancement issue through the Github Issue Tracker. Always check any outstanding feature and enhancement requests from other users to prevent duplication of the same request. When submitting a feature request or enhancement request, please include as much detail about the feature or enhancement that you'd like to see.
+
+			</div>
+
+			<div>
+
+				Unfortunately, we cannot always make everyone happy. Many feature requests will remain outside of the scope of Malscan, and as such will be rejected. Please don't take any rejections personally, however we do intend to focus on core functionality and performance improvements whenever required with the limited amount of development resources that are available.
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2 id="#system-requirements">Contributing Code</h2>
+
+	<div>
+		
+		We are always happy to accept pull requests, provided that they include all of the following:
+
+		<ul>
+			
+			<li>The code is licensed under the MIT license. All Malscan code falls under this license, and yours must not be an exception.</li>
+			<li>
+				Commit messages must be descriptive and follow git best practices for format and information. See <a href="https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message" target="blank">this reference</a>.
+			</li>
+			<li>You must be referencing a current issue, whether it is a bug report, feature request, or enhancement.</li>
+			<li>You must update the CHANGELOG.md file under the <span class="file-block">### x.x.x-dev</span> section at the top.</li>
+			<li>Your code must have been fully tested on CentOS or RHEL 6 and 7.</li>
+
+		</ul>
+
+	</div>
+
+	<div>
+
+		Unfortunately, we cannot always make everyone happy. Many feature requests will remain outside of the scope of Malscan, and as such will be rejected. Please don't take any rejections personally, however we do intend to focus on core functionality and performance improvements whenever necessary with the limited amount of development resources that are available.
+
+	</div>
+
+</div>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2 id="#system-requirements">Contributing Malware Signatures</h2>
+
+	<div>
+		
+		<div>
+
+			By default, Malscan does not send any information anywhere. If you choose, however, you can have Malscan send malicious files to the centralized Malscan signatures server for inclusion in future signature databases. As part of this process, the malware is manually reviewed to ensure that it is malicious, and is then added to the malware databases.
+
+		</div>
+
+		<div>
+
+			Malscan developers do not:
+
+		</div>
+
+		<ul>
+			
+			<li>Provide investigation or consulting about potentially malicious files for individuals or companies.</li>
+			<li>Provide reports to individuals or companies about any files sent to the Malscan servers</li>
+			<li>Accept any licenses or terms as part of receiving these files</li>
+
+		</ul>
+
+		<diV>
+
+			All files that are sent to Malscan through the use of the <span class="file-block">malscan -r</span> command become the property of Malscan, with permission granted by the sending party to act upon as they wish with no liability or limitations whatsoever.
+
+		</diV>
+
+	</div>
+
+
+</div>
+
+<hr class="block-divider">
+
+<div>
+
+	<h2 id="#system-requirements">Donating To Development</h2>
+
+	<div>
+		
+		<div>
+
+			Malscan is free and open source software, with no requirements for payment of any type for usage of the software. All development is provided by volunteers who receive no payment for their services by Malscan.
+
+		</div>
+
+		<div>
+
+			Malscan has very limited resources to pay for things like server hosting and development costs. If you would like to contribute financially to Malscan, you can do so by any of the methods below:
+
+		</div>
+
+		<ul>
+			
+			<li>Patreon <span class="file-block blue-block">Coming Soon</span></li>
+			<li>GratiPay <span class="file-block blue-block">Coming Soon</span></li>
+			<li>Bitcoin</li>
+
+		</ul>
+
+		<div>
+
+			If you would like to donate material services to Malscan, we would be more than happy to accept the following:
+
+		</div>
+
+		<ul>
+			
+			<li>Server hosting for our web presence or development</li>
+			<li>Mirroring of malware signature databases</li>
+
+		</ul>
+
+		<diV>
+
+			If you would like to speak with our development team in regards to donating, you can do so through our <a href="/contact/">Contact Us</a> page.
+
+		</diV>
+
+	</div>
+
+
+</div>

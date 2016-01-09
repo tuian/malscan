@@ -4,6 +4,11 @@ body {
 	font-size: 90%;
 }
 
+li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 .code-block{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -21,6 +26,18 @@ body {
 	border-radius: 5px;
 	padding: 2px 5px 2px 5px;
 	font-style: italic;
+}
+
+.green-block: {
+	background-color: #01b43a;
+}
+
+.red-block {
+	background-color: #ac2925;
+}
+
+.blue-block {
+	background-color: #336699;
 }
 
 .block-divider {

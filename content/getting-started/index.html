@@ -153,17 +153,17 @@ permalink: /getting-started/
 					<li>Create the required malscan directories.</li>
 					<li style="list-style-type: none">
 						<ul>
-							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan</span></li>
-							<!--<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/bin</span></li>
-							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/logs</span></li>
-							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/quarantine</span></li>
-							<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">mkdir /usr/local/share/malscan/signatures</span></li>-->
+							<li><span class="file-block">mkdir /usr/local/share/malscan</span></li>
+							<!--<li><span class="file-block">mkdir /usr/local/share/malscan/bin</span></li>
+							<li><span class="file-block">mkdir /usr/local/share/malscan/logs</span></li>
+							<li><span class="file-block">mkdir /usr/local/share/malscan/quarantine</span></li>
+							<li><span class="file-block">mkdir /usr/local/share/malscan/signatures</span></li>-->
 						</ul>
 					</li>
 					<li>Clone the Malscan git repository into the <span class="file-block">/usr/local/share/malscan</span> directory.</li>
 					<li style="list-style-type: none">
 						<ul>
-							<li style="margin-top: 5px; margin-bottom: 5px">
+							<li>
 								<span class="file-block">cd /usr/local/share/malscan && git clone https://github.com/jgrancell/malscan.git .</span>
 							</li>
 							<li>Don't overlook the period at the end of that command; ensure you include it so the clone ends up in the right directory.</li>
@@ -237,10 +237,10 @@ permalink: /getting-started/
 
 		<ul>
 			
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c</span>: Show all Malscan configuration options and their values</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option]</span>: Shows a single configuration option and its value</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option] [value]</span>: Changes the specified configuration option to the new specified value</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">malscan -c [option] --description</span>: Provides a description about a Malscan configuration option</li>
+			<li><span class="file-block">malscan -c</span>: Show all Malscan configuration options and their values</li>
+			<li><span class="file-block">malscan -c [option]</span>: Shows a single configuration option and its value</li>
+			<li><span class="file-block">malscan -c [option] [value]</span>: Changes the specified configuration option to the new specified value</li>
+			<li><span class="file-block">malscan -c [option] --description</span>: Provides a description about a Malscan configuration option</li>
 
 		</ul>
 
@@ -254,10 +254,10 @@ permalink: /getting-started/
 
 		<ul>
 			
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-s</span>: A basic malware scan, leveraging over 50,000 known malware signatures.</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-m</span>: A mime-type scan, comparing the mime-type of a file against it's extension</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-l</span>: A string length scan, checking for unusually long strings</li>
-			<li style="margin-top: 5px; margin-bottom: 5px"><span class="file-block">-t</span>: A tripwire scan, comparing the current file tree against a previous whitelisting</li>
+			<li><span class="file-block">-s</span>: A basic malware scan, leveraging over 50,000 known malware signatures.</li>
+			<li><span class="file-block">-m</span>: A mime-type scan, comparing the mime-type of a file against it's extension</li>
+			<li><span class="file-block">-l</span>: A string length scan, checking for unusually long strings</li>
+			<li><span class="file-block">-t</span>: A tripwire scan, comparing the current file tree against a previous whitelisting</li>
 			<li style="list-style-type: none">
 				<ul>
 					<li>Note that the tripwire scan will return every single file not currently whitelisted as suspicious.</li>
