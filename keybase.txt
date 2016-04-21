@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/jgrancell
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.malscan.org
+  * I am jgrancell (https://keybase.io/jgrancell) on keybase.
+  * I have a public key ASBKgKiizMLyx1W5yK0JERcrB1ZbQXZCAqtbtn5vPbKS1wo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01204a80a8a2ccc2f2c755b9c8ad0911172b07565b41764202ab5bb67e6f3db292d70a",
+            "host": "keybase.io",
+            "kid": "01204a80a8a2ccc2f2c755b9c8ad0911172b07565b41764202ab5bb67e6f3db292d70a",
+            "uid": "904c4cb290e801fe5cc89abdd130e219",
+            "username": "jgrancell"
+        },
+        "service": {
+            "hostname": "www.malscan.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.15"
+    },
+    "ctime": 1461265882,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1461265813,
+        "hash": "ca3b9dd740e975e9ec8bd314dad983e670d50a2f5603649eec6ffdecfca0dddca7282eff77aa4839457fc314283fec987598ed793653f15d260aa1607d54036e",
+        "seqno": 448628
+    },
+    "prev": "e32a56e44f7c80e058dad5f92bfd6a2b009586d0b6ceb8e035c95b55ee95ff06",
+    "seqno": 14,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgSoCooszC8sdVucitCREXKwdWW0F2QgKrW7Z+bz2yktcKp3BheWxvYWTFAvl7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNGE4MGE4YTJjY2MyZjJjNzU1YjljOGFkMDkxMTE3MmIwNzU2NWI0MTc2NDIwMmFiNWJiNjdlNmYzZGIyOTJkNzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNGE4MGE4YTJjY2MyZjJjNzU1YjljOGFkMDkxMTE3MmIwNzU2NWI0MTc2NDIwMmFiNWJiNjdlNmYzZGIyOTJkNzBhIiwidWlkIjoiOTA0YzRjYjI5MGU4MDFmZTVjYzg5YWJkZDEzMGUyMTkiLCJ1c2VybmFtZSI6ImpncmFuY2VsbCJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoid3d3Lm1hbHNjYW4ub3JnIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTUifSwiY3RpbWUiOjE0NjEyNjU4ODIsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ2MTI2NTgxMywiaGFzaCI6ImNhM2I5ZGQ3NDBlOTc1ZTllYzhiZDMxNGRhZDk4M2U2NzBkNTBhMmY1NjAzNjQ5ZWVjNmZmZGVjZmNhMGRkZGNhNzI4MmVmZjc3YWE0ODM5NDU3ZmMzMTQyODNmZWM5ODc1OThlZDc5MzY1M2YxNWQyNjBhYTE2MDdkNTQwMzZlIiwic2Vxbm8iOjQ0ODYyOH0sInByZXYiOiJlMzJhNTZlNDRmN2M4MGUwNThkYWQ1ZjkyYmZkNmEyYjAwOTU4NmQwYjZjZWI4ZTAzNWM5NWI1NWVlOTVmZjA2Iiwic2Vxbm8iOjE0LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQPTqYED5dkmDwnzZ7hCI9rTOt+Cx9KotwOi78v6urIdGICzaiBUebMCiePihSUu8TtbxymPmEElvKKeXj2mCyAWoc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jgrancell
+
+==================================================================
