@@ -67,9 +67,7 @@ permalink: /getting-started/
 			<div style="margin-top: 5px">
 
 				<ul>
-					<li>Red Hat Enterprise Linux 6.8</li>
 					<li>Red Hat Enterprise Linux 7.2</li>
-					<li>CentOS 6.8</li>
 					<li>CentOS 7.2</li>
 				</ul>
 
@@ -79,43 +77,9 @@ permalink: /getting-started/
 
 			<div class="code-block">
 				
-			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> wget https://www.malscan.org/static/repo-setup.sh | bash
+			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> rpm -Uvh https://www.malscan.org/malscan-release-el.rpm
 
 			</div>
-
-			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
-
-		</div>
-
-	</div>
-
-	<div>
-		
-		<h4>Debian / Ubuntu</h4>
-
-		<div style="margin-bottom: 10px">
-			
-			An automatic installation script is available for both Ubuntu and Debian, and may function on any other Debian-based operating systems. It has been tested for functionality on the operating systems listed below.
-
-			<div style="margin-top: 5px">
-
-				<ul>
-					<li>Debian 8.2 (Jessie)</li>
-					<li>Debian 7.9 (Wheezy)</li>
-					<li>Ubuntu Server 14.04</li>
-				</ul>
-
-			</div>
-
-			To install Malscan using the installation script, run the command below.
-
-			<div class="code-block">
-				
-			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> wget https://www.malscan.org/static/debian-install.sh | bash
-
-			</div>
-
-			The installation script is not unattended. There are a number of prompts that that are required to complete installation. Once installation has been completed, however, the core configuration file in <span class="file-block">/usr/local/share/malscan/conf.malscan</span> can be included in Puppet or any other configuration management for easier infrastructure-wide installation.
 
 			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
 
@@ -144,7 +108,7 @@ permalink: /getting-started/
 							<li>Email software (if using email notifications</li>
 							<li>
 								<ul>
-									<li>Postfix</li>
+									<li>Postfix -- Recommended</li>
 									<li>Exim</li>
 								</ul>
 							</li>
@@ -154,10 +118,9 @@ permalink: /getting-started/
 					<li style="list-style-type: none">
 						<ul>
 							<li><span class="file-block">mkdir /usr/local/share/malscan</span></li>
-							<!--<li><span class="file-block">mkdir /usr/local/share/malscan/bin</span></li>
-							<li><span class="file-block">mkdir /usr/local/share/malscan/logs</span></li>
-							<li><span class="file-block">mkdir /usr/local/share/malscan/quarantine</span></li>
-							<li><span class="file-block">mkdir /usr/local/share/malscan/signatures</span></li>-->
+							<li><span class="file-block">mkdir /var/lib/malscan</span></li>
+							<li><span class="file-block">mkdir /var/log/malscan</span></li>
+							<li><span class="file-block">mkdir /root/.malscan-quarantine</span></li>
 						</ul>
 					</li>
 					<li>Clone the Malscan git repository into the <span class="file-block">/usr/local/share/malscan</span> directory.</li>
@@ -169,8 +132,8 @@ permalink: /getting-started/
 							<li>Don't overlook the period at the end of that command; ensure you include it so the clone ends up in the right directory.</li>
 						</ul>
 					</li>
-					<li>Copy the <span class="file-block">/usr/local/share/malscan/conf.malscan-example</span> and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
-					<li>Add the <span class="file-block">/usr/local/share/malscan/bin</span> path to your terminal's $PATH, or symlink the binaries within into a directory already in your $PATH</li>
+					<li>Copy the <span class="file-block">/usr/local/share/malscan/malscan.conf</span> file to <span class="file-block">/etc/malscan.conf</span>and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
+					<li>Create a symlink for the malscan binary using <span class="file-block">ln -s /usr/local/share/malscan/malscan.sh /usr/local/bin/malscan</span></li>
 				</ol>
 
 
@@ -200,7 +163,7 @@ permalink: /getting-started/
 				<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -h
 			</div>
 			<div>
-				<span class="bash-blue">Malscan version 1.6.0, released on November 16 2015</span><br>
+				<span class="bash-blue">Malscan Version: {{ site.malscan-version }} | Signatures last updated: {{ "now" | date: "%c"}}</span><br>
 				Usage: malscan [options] /path/to/scanned/directory
 			</div>
 			<div style="margin-left: 6%">

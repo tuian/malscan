@@ -10,13 +10,13 @@ layout: page
   <div class="code-block">
 
     <div style="margin-bottom: 10px">
-      <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -mls /web/malscan.org/<br>
-      <span class="bash-blue">Malscan Version: 1.6.0 | Signatures last updated: Thu Jan  7 19:09:04 EST 2016</span><br>
+      <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -mls ./malscan.org/<br>
+      <span class="bash-blue">Malscan Version: {{ site.malscan-version }} | Signatures last updated: {{ "now" | date: "%c"}}</span><br>
     </div>
 
     <div style="margin-left: 2%; margin-bottom: 10px">
       <span class="bash-yellow">* MIME Scan: Beginning scan.</span><br>
-      - MIME Scan: Compiling a full file list for /web/malscan.org/.<br>
+      - MIME Scan: Compiling a full file list for /var/www/malscan.org/.<br>
       - MIME Scan: Searching file list for MIME mismatches.<br>
       <span class="bash-green">* MIME Scan: Completed. No suspicious files detected.</span>
     </div>
@@ -28,13 +28,13 @@ layout: page
     </div>
 
     <div style="margin-left: 2%">
-      <span class="bash-yellow">* Malware Scan: Beginning scan of /web/malscan.org/...</span><br>
+      <span class="bash-yellow">* Malware Scan: Beginning scan of /var/www/malscan.org/...</span><br>
       <span class="bash-green">* Malware Scan: Completed. No malicious files found.</span>
     </div>
 
     <div>
       <span class="bash-root-prompt">
-        [<span class="bash-red">root</span>@<span class="bash-blue">example</span>:<span class="bash-red">/usr/local/share/malscan</span>]<span class="bash-red">#</span>
+        [<span class="bash-red">root</span>@<span class="bash-blue">example</span>:<span class="bash-red">~</span>]<span class="bash-red">#</span>
       </span>
     </div>
 
