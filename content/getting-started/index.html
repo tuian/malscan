@@ -171,6 +171,16 @@ permalink: /getting-started/
 					</li>
 					<li>Copy the <span class="file-block">/usr/local/share/malscan/conf.malscan-example</span> and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
 					<li>Add the <span class="file-block">/usr/local/share/malscan/bin</span> path to your terminal's $PATH, or symlink the binaries within into a directory already in your $PATH</li>
+					<li>Create a malscan user and group, and assign any users that you would like to use malscan to the malscan group</li>
+					<li style="list-style-type: none">
+						<ul>
+							<li>
+								<span class="file-block">groupadd -r malscan</span>
+								<span class="file-block">useradd -r -g malscan -s /sbin/nologin -c "Malscan Service User" malscan</span>
+								<span class="file-block">usermod -a -G malscan your_user</span>
+							</li>
+						</ul>
+					</li>
 				</ol>
 
 
