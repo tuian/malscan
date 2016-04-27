@@ -7,9 +7,12 @@ description: > # this means to ignore newlines until "baseurl:"
   source and free software licensed under the MIT License.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://www.malscan.org" # the base hostname & protocol for your site
-twitter_username: jgrancell
 github_username:  jgrancell
 
 # Build settings
 markdown: kramdown
 highlighter: pygments
+
+## Global settings
+malscan-version: 1.7.0
+malscan-release-date: "April 24, 2016"
