@@ -1,0 +1,6 @@
+[package]
+name = "malscan"
+version = "0.0.1"
+authors = ["Josh Grancell <jgrancell@campbellmarketing.com>"]
+
+[dependencies]
