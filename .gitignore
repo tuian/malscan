@@ -1,21 +1,7 @@
 ## Project Files
 *.sublime*
 
-## Base ClamAV Files
-*.cld
-*.cvd
-mirrors.dat
+## Rust Build Files
+Cargo.lock
+target
 
-## Malscan Auto-Generated Folders
-log
-quarantine
-
-## RFXN Signatures
-rfxn*
-
-## Malscan signatures
-custom.*
-whitelist.db
-
-## Malscan configuration files
-conf.malscan
