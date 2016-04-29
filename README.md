@@ -4,6 +4,7 @@ Malscan
 Redesign of the 
 
 [![GitHub version](https://img.shields.io/badge/version-0.0.1-red.svg)](https://github.com/jgrancell/malscan)
+[![Build Status](https://travis-ci.org/jgrancell/malscan.svg?branch=rust-factor)](https://travis-ci.org/jgrancell/malscan)
 
 #Table of Contents
 * [Implemented Features](#implemented-features)
