@@ -49,10 +49,19 @@ fn updater() {
     // Pulling in the RFXN databases
     updater_malscan_signatures("https://www.rfxn.org/rfxn.hdb",
                                "/var/lib/malscan/malscan.hdb",
-                               "RFXN Signature Database I");
+                               "Updating the RFXN HEX signature database.");
     updater_malscan_signatures("https://www.rfxn.org/rfxn.ndb",
                                "/var/lib/malscan/malscan.ndb",
-                               "RFXN Signature Database II");
+                               "Updating the RFXN MD5/SHA signature database.");
+    // updater_malscan_signatures("http://database.clamav.net/main.cvd",
+    //                           "/var/lib/malscan/main.cvd",
+    //                           "Updating the ClamAV Main signature database.");
+    // updater_malscan_signatures("http://database.clamav.net/bytecode.cvd",
+    //                           "/var/lib/malscan/bytecode.cvd",
+    //                           "Updating the ClamAV Bytecode signature database.");
+    // updater_malscan_signatures("http://database.clamav.net/bytecode.cvd",
+    //                           "/var/lib/malscan/daily.cvd",
+    //                           "Updating the ClamAV Daily signature database.");
     updater_freshclam();
 
     // Completing the Malscan signature update portion
@@ -76,7 +85,7 @@ fn updater_freshclam() {
 }
 
 // This function manually fetches and updates malscan custom signatures
-fn updater_malscan_signatures(url: &str, file_name: &str, signature_database_name: &str) {
+fn updater_malscan_signatures(url: &str, file_name: &str, signature_database_text: &str) {
 
     // Creating our HTTP Client
     let client = Client::new();
@@ -108,10 +117,7 @@ fn updater_malscan_signatures(url: &str, file_name: &str, signature_database_nam
                    display,
                    Error::description(&why))
         }
-        Ok(_) => {
-            println!("  * Update: {} updated. Continuing...",
-                     signature_database_name)
-        }
+        Ok(_) => println!("  * Update: {}", signature_database_text),
     }
 
 }
