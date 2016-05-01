@@ -5,6 +5,7 @@ extern crate time;
 extern crate term_painter;
 
 use std::env;
+use std::env::args;
 use std::error::Error;
 use std::io::prelude::*;
 use std::fs::File;
@@ -47,21 +48,14 @@ fn updater() {
              BrightYellow.paint("  * Update: Downloading the latest Malscan malware definitions."));
 
     // Pulling in the RFXN databases
-    updater_malscan_signatures("https://www.rfxn.org/rfxn.hdb",
-                               "/var/lib/malscan/malscan.hdb",
-                               "Updating the RFXN HEX signature database.");
-    updater_malscan_signatures("https://www.rfxn.org/rfxn.ndb",
-                               "/var/lib/malscan/malscan.ndb",
-                               "Updating the RFXN MD5/SHA signature database.");
-    // updater_malscan_signatures("http://database.clamav.net/main.cvd",
-    //                           "/var/lib/malscan/main.cvd",
-    //                           "Updating the ClamAV Main signature database.");
-    // updater_malscan_signatures("http://database.clamav.net/bytecode.cvd",
-    //                           "/var/lib/malscan/bytecode.cvd",
-    //                           "Updating the ClamAV Bytecode signature database.");
-    // updater_malscan_signatures("http://database.clamav.net/bytecode.cvd",
-    //                           "/var/lib/malscan/daily.cvd",
-    //                           "Updating the ClamAV Daily signature database.");
+    updater_malscan("https://www.rfxn.org/rfxn.hdb",
+                    "/var/lib/malscan/malscan.hdb",
+                    "Updating the RFXN HEX signature database.");
+    updater_malscan("https://www.rfxn.org/rfxn.ndb",
+                    "/var/lib/malscan/malscan.ndb",
+                    "Updating the RFXN MD5/SHA signature database.");
+
+    // Running the freshclam updater
     updater_freshclam();
 
     // Completing the Malscan signature update portion
@@ -76,16 +70,15 @@ fn updater_freshclam() {
 
     use std::process::Command;
 
-    let output = Command::new("/usr/bin/freshclam")
-                     .arg("--datadir=/var/lib/malscan")
-                     .output()
-                     .unwrap_or_else(|e| panic!("failed to execute process: {}", e));
-    println!("  * Update: ClamAV Signature Databases Updated. {}",
-             output.status);
+    Command::new("/usr/bin/freshclam")
+        .arg("--datadir=/var/lib/malscan")
+        .output()
+        .unwrap_or_else(|e| panic!("failed to execute process: {}", e));
+    println!("  * Update: ClamAV Signature Databases Updated.");
 }
 
 // This function manually fetches and updates malscan custom signatures
-fn updater_malscan_signatures(url: &str, file_name: &str, signature_database_text: &str) {
+fn updater_malscan(url: &str, file_name: &str, signature_database_text: &str) {
 
     // Creating our HTTP Client
     let client = Client::new();
