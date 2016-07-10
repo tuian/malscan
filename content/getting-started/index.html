@@ -18,18 +18,31 @@ permalink: /getting-started/
 
 		<div>
 
-			Malscan has a number of dependencies, many of which are already pre-installed on most minimal Linux installations. Required packages are:
+			The base malscan application has few dependencies, however certain additional functionality and modules of malscan have different dependencies. Basic package requirements for malscan are:
+
+        </div>
+
+        <div style="margin-top: 5px">
+
+            <ul>
+                <li>Clam Antivirus 0.98 or later</li>
+                <li>the file package</li>
+                <li>the wget package</li>
+                <li>the bash package</li>
+            </ul>
 
 		</div>
+
+        <div>
+            
+            Additional dependencies for certain malscan modules include: 
+
+        </div>
 
 		<div style="margin-top: 5px">
 
 			<ul>
-				<li>ClamAV 0.98+</li>
-				<li>git</li>
-				<li>file</li>
-				<li>bash</li>
-				<li>postfix or exim (if using email notifications)</li>
+				<li>Email notifications - sendmail</li>
 			</ul>
 
 		</div>
@@ -58,104 +71,129 @@ permalink: /getting-started/
 
 	<div>
 		
-		<h4>Red Hat Enterprise Linux / CentOS</h4>
+        <h4>Red Hat Enterprise Linux / CentOS</h4>
 
-		<div style="margin-bottom: 10px">
-			
-			Yum repositories are available for the following:
+        <div style="margin-bottom: 10px">
+            
+            Yum repositories are available for the two latest RedHat Enerprise Linux and CentOS releases, currently: RHEL/CentOS 6, and RHEL/CentOS 7. To install malscan, run the command below:
 
-			<div style="margin-top: 5px">
+            <div class="code-block">
+                
+            <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> rpm -Uvh https://www.malscan.org/malscan-release-el.rpm
 
-				<ul>
-					<li>Red Hat Enterprise Linux 7.2</li>
-					<li>CentOS 7.2</li>
-				</ul>
+            </div>
 
-			</div>
+            malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below to get started using malscan.
 
-			To automatically configure the Malscan repository for your RHEL/CentOS installation, run the command below.
+        </div>
 
-			<div class="code-block">
-				
-			<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> rpm -Uvh https://www.malscan.org/malscan-release-el.rpm
+        <h4>Fedora 22 / 23 /24</h4>
 
-			</div>
+        <div style="margin-bottom: 10px">
+            
+            Yum repositories are available for the three latest Fedora releases, currently: Fedora 22, Fedora 23, and Fedora 24. To install malscan, run the command below:
 
-			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
+            <div class="code-block">
+                
+            <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> rpm -Uvh https://www.malscan.org/malscan-release-fedora.rpm
 
-		</div>
+            </div>
 
-	</div>
+            malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below to get started using malscan.
 
-	<div>
-		
-		<h4>Manual Installation - Any Linux OS</h4>
-
-		<div style="margin-bottom: 10px">
-			
-			Malscan can be manually installed on any operating system that successfully meets the <a href="#system-requirements">System Requirements</a> listed above. This can be done by following the steps outlined below.
-
-			<div style="margin-top: 5px">
-
-				<ol>
-					<li>Install all software dependencies with your OS's package manager (or from source)</li>
-					<li style="list-style-type: none">
-						<ul>
-							<li>ClamAV 0.98+</li>
-							<li>Git</li>
-							<li>File</li>
-							<li>Bash</li>
-							<li>Email software (if using email notifications</li>
-							<li>
-								<ul>
-									<li>Postfix -- Recommended</li>
-									<li>Exim</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>Create the required malscan directories.</li>
-					<li style="list-style-type: none">
-						<ul>
-							<li><span class="file-block">mkdir /usr/local/share/malscan</span></li>
-							<li><span class="file-block">mkdir /var/lib/malscan</span></li>
-							<li><span class="file-block">mkdir /var/log/malscan</span></li>
-							<li><span class="file-block">mkdir /root/.malscan-quarantine</span></li>
-						</ul>
-					</li>
-					<li>Clone the Malscan git repository into the <span class="file-block">/usr/local/share/malscan</span> directory.</li>
-					<li style="list-style-type: none">
-						<ul>
-							<li>
-								<span class="file-block">cd /usr/local/share/malscan && git clone https://github.com/jgrancell/malscan.git .</span>
-							</li>
-							<li>Don't overlook the period at the end of that command; ensure you include it so the clone ends up in the right directory.</li>
-						</ul>
-					</li>
-					<li>Copy the <span class="file-block">/usr/local/share/malscan/conf.malscan-example</span> and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
-					<li>Add the <span class="file-block">/usr/local/share/malscan/bin</span> path to your terminal's $PATH, or symlink the binaries within into a directory already in your $PATH</li>
-					<li>Create a malscan user and group, and assign any users that you would like to use malscan to the malscan group</li>
-					<li style="list-style-type: none">
-						<ul>
-							<li>
-								<span class="file-block">groupadd -r malscan</span>
-								<span class="file-block">useradd -r -g malscan -s /sbin/nologin -c "Malscan Service User" malscan</span>
-								<span class="file-block">usermod -a -G malscan your_user</span>
-							</li>
-						</ul>
-					</li>
-					<li>Copy the <span class="file-block">/usr/local/share/malscan/malscan.conf</span> file to <span class="file-block">/etc/malscan.conf</span>and replace all <span class="file-block">placeholder</span> information with the correct settings.</li>
-					<li>Create a symlink for the malscan binary using <span class="file-block">ln -s /usr/local/share/malscan/malscan.sh /usr/local/bin/malscan</span></li>
-				</ol>
-
-
-			</div>
-
-			Malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below for usage.
-
-		</div>
+        </div>
 
 	</div>
+
+    <div>
+        
+        <h4>Automated Installation - RHEL, CentOS, Fedora, Debian, Ubuntu</h4>
+
+        <div style="margin-bottom: 10px">
+            
+            If you cannot, or are not interested in, using the provided repositories for your distribution to install malscan, you can use the automated malscan installation script. To install malscan on most RHEL, CentOS, Fedora, Debian, and Ubuntu systems run the following command as root:
+
+            <div class="code-block">
+                
+            <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> wget https://raw.githubusercontent.com/jgrancell/malscan/master/install.sh && bash install
+
+            </div>
+
+            malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below to get started using malscan.
+
+        </div>
+
+    </div>
+
+    <div>
+        
+        <h4>Manual Installation - Any Linux OS</h4>
+
+        <div style="margin-bottom: 10px">
+            
+            Malscan can be manually installed on any operating system that successfully meets the <a href="#system-requirements">System Requirements</a> listed above. This can be done by following the steps outlined below.
+
+            <div style="margin-top: 5px">
+
+                <ol>
+                    <li>Install all software dependencies with your OS's package manager (or from source): 
+                        <li><span class="file-block">clamav</span></li>
+                        <li><span class="file-block">clamav-update</span> (your package manager may name it clamav-update or clamav-db)</li>
+                        <li><span class="file-block">bash</span></li>
+                        <li><span class="file-block">file</span></li>
+                        <li><span class="file-block">wget</span></li>
+                        <li><span class="file-block">sendmail</span></li>
+                    </li>
+                    <li>Create the required malscan directories.</li>
+                    <li style="list-style-type: none">
+                        <ul>
+                            <li><span class="file-block">mkdir /usr/local/share/malscan</span></li>
+                            <li><span class="file-block">mkdir /etc/malscan</span></li>
+                            <li><span class="file-block">mkdir /var/lib/malscan</span></li>
+                            <li><span class="file-block">mkdir /var/log/malscan</span></li>
+                            <li><span class="file-block">mkdir /root/.malscan/quarantine</span></li>
+                        </ul>
+                    </li>
+                    <li>Place the following files in the listed locations:
+                        <li>
+                            <span class="file-block">wget -P "/etc/malscan/" "https://raw.githubusercontent.com/jgrancell/malscan/master/malscan.conf"</span>
+                        </li>
+                        <li>
+                            <span class="file-block">wget -P "/etc/malscan/" "https://raw.githubusercontent.com/jgrancell/malscan/master/freshclam.conf"</span>
+                        </li>
+                        <li>
+                            <span class="file-block">wget -P "/usr/local/share/man/man1/" "https://raw.githubusercontent.com/jgrancell/malscan/master/malscan.1"</span>
+                        </li>
+                        <li>
+                            <span class="file-block">wget -P "/usr/local/bin/" "https://raw.githubusercontent.com/jgrancell/malscan/master/malscan"</span>
+                        </li>
+                        <li>
+                            <span class="file-block">wget -P "/usr/local/share/malscan/" "https://raw.githubusercontent.com/jgrancell/malscan/master/version.txt"</span>
+                        </li>
+                    </li>
+
+
+                    <li>Create a malscan user and group, and assign any users that you would like to use malscan to the malscan group</li>
+                    <li style="list-style-type: none">
+                        <ul>
+                            <li>
+                                <span class="file-block">groupadd -r malscan</span>
+                                <span class="file-block">useradd -r -g malscan -s /sbin/nologin -c "Malscan Service User" malscan</span>
+                                <span class="file-block">usermod -a -G malscan your_user</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Make the binary executable with <span class="file-block">chmod +x /usr/local/bin/malscan</span></li>
+                </ol>
+
+
+            </div>
+
+            malscan is now installed! Please see the <a href="#basic-usage">Basic Usage</a> section below to get started with malscan.
+
+        </div>
+
+    </div>
 
 
 </div>
