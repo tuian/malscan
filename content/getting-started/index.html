@@ -137,12 +137,14 @@ permalink: /getting-started/
 
                 <ol>
                     <li>Install all software dependencies with your OS's package manager (or from source): 
-                        <li><span class="file-block">clamav</span></li>
-                        <li><span class="file-block">clamav-update</span> (your package manager may name it clamav-update or clamav-db)</li>
-                        <li><span class="file-block">bash</span></li>
-                        <li><span class="file-block">file</span></li>
-                        <li><span class="file-block">wget</span></li>
-                        <li><span class="file-block">sendmail</span></li>
+                        <ul>
+                            <li><span class="file-block">clamav</span></li>
+                            <li><span class="file-block">clamav-update</span> (your package manager may name it clamav-update or clamav-db)</li>
+                            <li><span class="file-block">bash</span></li>
+                            <li><span class="file-block">file</span></li>
+                            <li><span class="file-block">wget</span></li>
+                            <li><span class="file-block">sendmail</span></li>
+                        </ul>
                     </li>
                     <li>Create the required malscan directories.</li>
                     <li style="list-style-type: none">
@@ -178,7 +180,11 @@ permalink: /getting-started/
                         <ul>
                             <li>
                                 <span class="file-block">groupadd -r malscan</span>
+                            </li>
+                            <li>
                                 <span class="file-block">useradd -r -g malscan -s /sbin/nologin -c "Malscan Service User" malscan</span>
+                            </li>
+                            <li>
                                 <span class="file-block">usermod -a -G malscan your_user</span>
                             </li>
                         </ul>
