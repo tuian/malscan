@@ -223,19 +223,14 @@ permalink: /getting-started/
 				Usage: malscan [options] /path/to/scanned/directory
 			</div>
 			<div style="margin-left: 6%">
-			   <span class="bash-green">-c [option]</span>  -- displays a current configuration option value<br>
-			   <span class="bash-green">-c [option] [value]</span>  -- updates the value of a configuration option to a new value<br>
+			   <span class="bash-green">-c</span>  -- shows all configuration options and values<br>
+			   <span class="bash-green">-s [option] [value]</span>  -- updates the value of a configuration option to a new value<br>
 		       <span class="bash-green">-h</span>  -- display this help text<br>
 		       <span class="bash-green">-l</span>  -- line scan mode<br>
 		       <span class="bash-green">-m</span>  -- mime scan mode<br>
-		       <span class="bash-green">-n</span>  -- send email notification.<br>
 		       <span class="bash-green">-q</span>  -- quarantine any malicious files identified via the -s command<br>
-		       <span class="bash-green">-r</span>  -- report a file to central malscan servers and add to signatures<br>
-		       <span class="bash-green">-s</span>  -- basic malware scan<br>
-		       <span class="bash-green">-t</span>  -- tripwire scan. identifies any files that are not in the whitelist, or have changed since whitelisting<br>
 		       <span class="bash-green">-u</span>  -- updates the core application and all signature databases<br>
 		       <span class="bash-green">-v</span>  -- display core application and signature database version information<br>
-		       <span class="bash-green">-w</span>  -- adds specified file tree to whitelist.
 			</div>
 			<div>
 				<span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span>
@@ -249,21 +244,53 @@ permalink: /getting-started/
 
 		<h4>Configuration</h4>
 
-		Individual configuration options are accessible in two ways, through either the configuration file found at <span class="file-block">/usr/local/share/malscan/conf.malscan</span> or
-		through the <span class="file-block"> malscan -c</span> command.
+		Individual configuration options are accessible in two ways, through either the configuration file found at <span class="file-block">/etc/malscan/malscan.conf</span> or
+		through the <span class="file-block"> malscan -c</span> and <span class="file-block">malscan -s</span> commands.
 
-		Using the <span class="file-block">malscan -c</span> command allows you to pass no arguments, a single argument, or two arguments.
+		Using the <span class="file-block">malscan -c</span> command allows you to see all current malscan configuration options.
 
-		<ul>
-			
-			<li><span class="file-block">malscan -c</span>: Show all Malscan configuration options and their values</li>
-			<li><span class="file-block">malscan -c [option]</span>: Shows a single configuration option and its value</li>
-			<li><span class="file-block">malscan -c [option] [value]</span>: Changes the specified configuration option to the new specified value</li>
-			<li><span class="file-block">malscan -c [option] --description</span>: Provides a description about a Malscan configuration option</li>
+        <div class="code-block">
+            <div>
+                <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -c
+            </div>
+            <div style="margin-left: 6%">
+                Application Configuration Settings<br>
+                APPLICATION_DIRECTORY      - /usr/local/share/malscan<br>
+                CONFIGURATION_DIRECTORY    - /etc/malscan<br>
+                SIGNATURES_DIRECTORY       - /var/lib/malscan<br>
+                LOGGING_DIRECTORY          - /var/log/malscan<br>
+                QUARANTINE_DIRECTORY       - /root/.malscan/quarantine<br>
+                <br>
+                Notification Settings<br>
+                EMAIL_NOTIFICATIONS        - FALSE<br>
+                NOTIFICATION_ADDRESSES     - <br>
+                MALSCAN_SENDER_ADDRESS     - <br>
+                <br>
+                Scanning Settings<br>
+                STRING_LENGTH_MINIMUM      - 15000<br>
+            </div>
+            <div>
+                <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span>
+            </div>
 
-		</ul>
+        </div>
 
 	</div>
+
+    Using the <span class="file-block">malscan -s</span> command allows you to set the value for any of the options listed in <span class="file-block">malscan -c</span>.
+
+        <div class="code-block">
+            <div>
+                <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span> malscan -s QUARANTINE_DIRECTORY /usr/local/share/malscan/quarantine
+            </div>
+            <div style="margin-left: 6%">
+                * Configuration: QUARANTINE_DIRECTORY has been updated to /usr/local/share/malscan/quarantine
+            </div>
+            <div>
+                <span class="bash-root-prompt">[<span style="color: #ac2925">root</span>@<span style="color: #70DBDB">example</span>:<span style="color: #ac2925">~]#</span></span>
+            </div>
+
+        </div>
 
 	<div>
 		
@@ -273,23 +300,15 @@ permalink: /getting-started/
 
 		<ul>
 			
-			<li><span class="file-block">-s</span>: A basic malware scan, leveraging over 50,000 known malware signatures.</li>
+			<li><span class="file-block">-a</span>: A basic malware scan, leveraging over 50,000 known malware signatures.</li>
 			<li><span class="file-block">-m</span>: A mime-type scan, comparing the mime-type of a file against it's extension</li>
 			<li><span class="file-block">-l</span>: A string length scan, checking for unusually long strings</li>
-			<li><span class="file-block">-t</span>: A tripwire scan, comparing the current file tree against a previous whitelisting</li>
-			<li style="list-style-type: none">
-				<ul>
-					<li>Note that the tripwire scan will return every single file not currently whitelisted as suspicious.</li>
-					<li>Because of this, only run the <span class="file-block">-t</span> scan once you have set up a malscan whitelist.</li>
-					<li>You can find more information about tripwire whitelisting in the <a href="/documentation/tripwire/">Tripwire Documentation</a></li>
-				</ul>
-			</li>
 
 		</ul>
 
 		<div>
 			
-			Scans are run by passing any combination of flags: <span class="file-block">malscan -ms /path/to/target/directory/for/scanning</span>.
+			Scans are run by passing any combination of flags: <span class="file-block">malscan -ma /path/to/target/directory/for/scanning</span>.
 		
 		</div>
 
