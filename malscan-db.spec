@@ -1,7 +1,7 @@
 Summary: Virus signature databases for malscan
 Name: malscan-db
 Version: 1.0
-Release: 1
+Release: 2
 URL:     https://github.com/jgrancell/malscan
 License: MIT
 Group: Applications/System
@@ -45,5 +45,8 @@ rm -rf ${RPM_BUILD_ROOT}
 
 
 %changelog
+* Thu Jul 11 2016 Josh Grancell <josh@joshgrancell.com> 1.0-2
+- Update: Updated virus databases
+
 * Thu Jul 11 2016 Josh Grancell <josh@joshgrancell.com> 1.0-1
 - New: Initial packaging of virus databases for new malscan installations
