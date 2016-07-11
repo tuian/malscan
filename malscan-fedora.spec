@@ -41,10 +41,6 @@ install malscan.1 ${RPM_BUILD_ROOT}/usr/local/share/man/man1/malscan.1
 install LICENSE ${RPM_BUILD_ROOT}/usr/local/share/malscan/malscan.license
 install version.txt ${RPM_BUILD_ROOT}/usr/local/share/malscan/version.txt
 
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/main.cvd"
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/bytecode.cvd"
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/daily.cvd"
-
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
