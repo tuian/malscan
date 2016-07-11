@@ -29,7 +29,7 @@ git pull
 cd /home/makerpm/rpmbuild
 
 ## Creating the file structure for the SOURCE tarball
-rsync -avzP --exclude ".git" --exclude ".gitignore" --exclude "malscan.spec" --exclude "build-malscan.sh" /home/makerpm/rpmbuild/malscan/ "$TEMP/malscan-$VERSION/"
+rsync -avzP --exclude ".git" --exclude ".gitignore" --exclude ".codeclimate.yml" /home/makerpm/rpmbuild/malscan/ "$TEMP/malscan-$VERSION/"
 
 ## Packaging the files
 cd "$TEMP"
@@ -40,8 +40,8 @@ mv "$TEMP/malscan-$VERSION.tar.gz" "/home/makerpm/rpmbuild/SOURCES/"
 
 ## Copying the latest SPEC files from our git repo into SPECS
 cp "/home/makerpm/rpmbuild/malscan/malscan-el7.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el7.spec"
-# cp "/home/makerpm/rpmbuild/malscan/malscan.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el6.spec"
-cp "/home/makerpm/rpmbuild/malscan/malscan-fedora23.spec" "/home/makerpm/rpmbuild/SPECS/malscan-fedora23.spec"
+cp "/home/makerpm/rpmbuild/malscan/malscan-el6.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el6.spec"
+cp "/home/makerpm/rpmbuild/malscan/malscan-fedora.spec" "/home/makerpm/rpmbuild/SPECS/malscan-fedora.spec"
 
 ## Moving back into our pwd
 cd /home/makerpm/rpmbuild
@@ -59,9 +59,5 @@ rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-fedora23.spec
 
 ## Doing the RPM signing
 rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.el7.noarch.rpm"
-# rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.el6.noarch.rpm"
-rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.fedora23.noarch.rpm"
-
-## Pushing the new .rpms to the repository
-package_cloud push makerpm/malscan/el/7 RPMS/noarch/malscan-$1-$2.el7.noarch.rpm
-package_cloud push makerpm/malscan/fedora/23 RPMS/noarch/malscan-$1-$2.fedora23.noarch.rpm
+rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.el6.noarch.rpm"
+rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.fedora.noarch.rpm"
