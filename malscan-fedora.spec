@@ -48,7 +48,8 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(-,root,root)
-%config(noreplace) %attr(644,root,root) /etc/malscan.conf
+%config(noreplace) %attr(644,root,root) /etc/malscan/malscan.conf
+%config(noreplace) %attr(644,root,root) /etc/malscan/freshclam.conf
 %attr(755,root,root) /usr/local/bin/malscan
 %dir %attr(755,malscan,malscan) /usr/local/share/malscan
 %dir %attr(755,malscan,malscan) /var/lib/malscan
