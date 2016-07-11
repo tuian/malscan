@@ -55,6 +55,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %dir %attr(755,malscan,malscan) /var/lib/malscan
 %dir %attr(755,malscan,malscan) /var/log/malscan
 %attr(644,malscan,malscan) /usr/local/share/malscan/malscan.license
+%attr(644,malscan,malscan) /usr/local/share/malscan/version.txt
 %doc /usr/local/share/man/man1/malscan.1
 
 %changelog
