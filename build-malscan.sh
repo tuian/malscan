@@ -57,8 +57,8 @@ echo "Staging of all malscan files completed. Beginning build process."
 
 ## Creating the RPM
 rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-el7.spec
-# rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-el6.spec
-rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-fedora23.spec
+rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-el6.spec
+rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-fedora.spec
 
 ## Doing the RPM signing
 rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/noarch/malscan-$1-$2.el7.noarch.rpm"
