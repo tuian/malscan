@@ -23,7 +23,7 @@ TEMP=$(mktemp -d)
 mkdir -p "$TEMP/malscan-db-$VERSION"
 
 ## Creating the file structure for the SOURCE tarball
-rsync -avzP /home/makerpm/rpmbuild/malscan-db/ "$TEMP/malscan-db-$VERSION/"
+rsync -avzP /home/makerpm/rpmbuild/malscan/malscan-db/ "$TEMP/malscan-db-$VERSION/"
 
 ## Packaging the files
 cd "$TEMP"
