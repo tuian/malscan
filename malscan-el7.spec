@@ -8,6 +8,7 @@ Group: Applications/System
 BuildRoot: %{_tmppath}/%{name}-root
 Requires: bash wget file epel-release
 Requires: clamav clamav-update
+Requires: malscan-db
 Source0: malscan-%{version}.tar.gz
 BuildArch: noarch
 
@@ -40,9 +41,9 @@ install malscan.1 ${RPM_BUILD_ROOT}/usr/local/share/man/man1/malscan.1
 install LICENSE ${RPM_BUILD_ROOT}/usr/local/share/malscan/malscan.license
 install version.txt ${RPM_BUILD_ROOT}/usr/local/share/malscan/version.txt
 
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/main.cvd" --quiet
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/bytecode.cvd" --quiet
-wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/daily.cvd" --quiet
+wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/main.cvd"
+wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/bytecode.cvd"
+wget -P ${RPM_BUILD_ROOT}/var/lib/malscan/ "http://database.clamav.net/daily.cvd"
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -61,8 +62,9 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %changelog
 * Thu Jul 11 2016 Josh Grancell <josh@joshgrancell.com> 1.7.0-rc1
-- Feature: Configuration options can now be viewed using the malscan -c command. (fixes #10)
-- Feature: Configuration options can now be set using the malscan -s OPTION value command.
+- New: Configuration options can now be viewed using the malscan -c command. (fixes #10)
+- New: Configuration options can now be set using the malscan -s OPTION value command.
+- New: Initial packaging of ClamAV databases to make the first `malscan -u` command run substantially faster.
 - Fixed: malscan will now correctly check for sudo
 - Fixed: malscan will now check to see if the user is in the malscan group, in lieu of being run as sudo
 - Updated: malscan will now use its own freshclam.conf file and /var/lib/malscan signatures directory, to prevent conflicts with ClamAV
