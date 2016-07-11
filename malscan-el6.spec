@@ -35,7 +35,7 @@ mkdir -p ${RPM_BUILD_ROOT}/usr/local/share/man/man1
 
 install malscan.conf ${RPM_BUILD_ROOT}/etc/malscan/malscan.conf
 install freshclam.conf ${RPM_BUILD_ROOT}/etc/malscan/freshclam.conf
-install malscan.sh ${RPM_BUILD_ROOT}/usr/local/bin/malscan
+install malscan ${RPM_BUILD_ROOT}/usr/local/bin/malscan
 install malscan.1 ${RPM_BUILD_ROOT}/usr/local/share/man/man1/malscan.1
 install LICENSE ${RPM_BUILD_ROOT}/usr/local/share/malscan/malscan.license
 install version.txt ${RPM_BUILD_ROOT}/usr/local/share/malscan/version.txt
