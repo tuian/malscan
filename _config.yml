@@ -11,8 +11,8 @@ github_username:  jgrancell
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 ## Global settings
 malscan-version: 1.7.0
-malscan-release-date: "April 24, 2016"
+malscan-release-date: "July 11, 2016"
