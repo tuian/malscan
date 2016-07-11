@@ -23,13 +23,16 @@ TEMP=$(mktemp -d)
 mkdir -p "$TEMP/malscan-$VERSION"
 
 # Moving into the malscan directory
-cd /home/makerpm/rpmbuild/malscan
+cd /home/makerpm/rpmbuild/malscan/src
+git fetch
+git pull
+cd /home/makerpm/rpmbuild/malscan/rpm-build
 git fetch
 git pull
 cd /home/makerpm/rpmbuild
 
 ## Creating the file structure for the SOURCE tarball
-rsync -avzP --exclude ".git" --exclude ".gitignore" --exclude ".codeclimate.yml" /home/makerpm/rpmbuild/malscan/ "$TEMP/malscan-$VERSION/"
+rsync -avzP --exclude ".git" --exclude ".gitignore" --exclude ".codeclimate.yml" /home/makerpm/rpmbuild/malscan/src/ "$TEMP/malscan-$VERSION/"
 
 ## Packaging the files
 cd "$TEMP"
@@ -39,9 +42,9 @@ tar -czvf "$TEMP/malscan-$VERSION.tar.gz" "malscan-$VERSION"
 mv "$TEMP/malscan-$VERSION.tar.gz" "/home/makerpm/rpmbuild/SOURCES/"
 
 ## Copying the latest SPEC files from our git repo into SPECS
-cp "/home/makerpm/rpmbuild/malscan/malscan-el7.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el7.spec"
-cp "/home/makerpm/rpmbuild/malscan/malscan-el6.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el6.spec"
-cp "/home/makerpm/rpmbuild/malscan/malscan-fedora.spec" "/home/makerpm/rpmbuild/SPECS/malscan-fedora.spec"
+cp "/home/makerpm/rpmbuild/malscan/rpm-build/malscan-el7.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el7.spec"
+cp "/home/makerpm/rpmbuild/malscan/rpm-build/malscan-el6.spec" "/home/makerpm/rpmbuild/SPECS/malscan-el6.spec"
+cp "/home/makerpm/rpmbuild/malscan/rpm-build/malscan-fedora.spec" "/home/makerpm/rpmbuild/SPECS/malscan-fedora.spec"
 
 ## Moving back into our pwd
 cd /home/makerpm/rpmbuild
