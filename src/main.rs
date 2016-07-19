@@ -71,7 +71,7 @@ fn updater_freshclam() {
     use std::process::Command;
 
     Command::new("/usr/bin/freshclam")
-        .arg("--datadir=/var/lib/malscan")
+        .arg("--datadir=/var/lib/malscan --config-file=/etc/malscan/freshclam.conf")
         .output()
         .unwrap_or_else(|e| panic!("failed to execute process: {}", e));
     println!("  * Update: ClamAV Signature Databases Updated.");
