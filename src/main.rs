@@ -5,7 +5,6 @@ extern crate time;
 extern crate term_painter;
 
 use std::env;
-use std::env::args;
 use std::error::Error;
 use std::io::prelude::*;
 use std::fs::File;
@@ -22,7 +21,7 @@ fn main() {
     }
 
     // Setting the current Malscan version
-    let malscan_version: &str = "0.0.1";
+    let malscan_version: &str = "1.8.0";
 
     // Setting the current Malscan signature version
     let signature_version: &str = "Never";
@@ -48,15 +47,15 @@ fn updater() {
              BrightYellow.paint("  * Update: Downloading the latest malscan malware definitions."));
 
     // Pulling in the RFXN databases
-    updater_malscan("https://repo.malscan.org/signatures/rfxn.hdb.",
+    signatures_updater("https://repo.malscan.org/signatures/rfxn.hdb.",
                     "/var/lib/malscan/malscan.hdb",
                     "Updating the malscan HEX signature database.");
-    updater_malscan("https://repo.malscan.org/signatures/rfxn.ndb",
+    signatures_updater("https://repo.malscan.org/signatures/rfxn.ndb",
                     "/var/lib/malscan/malscan.ndb",
                     "Updating the malscan MD5/SHA signature database.");
 
     // Running the freshclam updater
-    updater_freshclam();
+    clamav_updater();
 
     // Completing the Malscan signature update portion
     println!("{}",
@@ -66,19 +65,20 @@ fn updater() {
 }
 
 // This function invokes freshclam to update the clamav files.
-fn updater_freshclam() {
+fn clamav_updater() {
 
     use std::process::Command;
 
     Command::new("/usr/bin/freshclam")
-        .arg("--datadir=/var/lib/malscan --config-file=/etc/malscan/freshclam.conf")
-        .output()
+        .arg("--datadir=/var/lib/malscan")
+        .arg("--config-file=/etc/malscan/freshclam.conf")
+	.output()
         .unwrap_or_else(|e| panic!("failed to execute process: {}", e));
     println!("  * Update: ClamAV Signature Databases Updated.");
 }
 
 // This function manually fetches and updates malscan custom signatures
-fn updater_malscan(url: &str, file_name: &str, signature_database_text: &str) {
+fn signatures_updater(url: &str, file_name: &str, signature_database_text: &str) {
 
     // Creating our HTTP Client
     let client = Client::new();

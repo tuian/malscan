@@ -1,7 +1,7 @@
 [package]
-name = "malscan"
-version = "0.0.1"
-authors = ["Josh Grancell <jgrancell@campbellmarketing.com>"]
+name = "malscan-updater"
+version = "1.8.0"
+authors = ["Josh Grancell <josh@joshgrancell.com>"]
 
 [dependencies]
 "hyper" = "0.9.0"
