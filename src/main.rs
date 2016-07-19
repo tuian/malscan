@@ -45,22 +45,22 @@ fn updater() {
 
     // Starting the Malscan signature update portion.
     println!("{}",
-             BrightYellow.paint("  * Update: Downloading the latest Malscan malware definitions."));
+             BrightYellow.paint("  * Update: Downloading the latest malscan malware definitions."));
 
     // Pulling in the RFXN databases
-    updater_malscan("https://www.rfxn.org/rfxn.hdb",
+    updater_malscan("https://repo.malscan.org/signatures/rfxn.hdb.",
                     "/var/lib/malscan/malscan.hdb",
-                    "Updating the RFXN HEX signature database.");
-    updater_malscan("https://www.rfxn.org/rfxn.ndb",
+                    "Updating the malscan HEX signature database.");
+    updater_malscan("https://repo.malscan.org/signatures/rfxn.ndb",
                     "/var/lib/malscan/malscan.ndb",
-                    "Updating the RFXN MD5/SHA signature database.");
+                    "Updating the malscan MD5/SHA signature database.");
 
     // Running the freshclam updater
     updater_freshclam();
 
     // Completing the Malscan signature update portion
     println!("{}",
-             BrightGreen.paint("  * Update: All Malscan signatures updated successfully."));
+             BrightGreen.paint("  * Update: All malscan signatures updated successfully."));
     println!("");
 
 }
