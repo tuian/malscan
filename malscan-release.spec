@@ -1,6 +1,6 @@
 Summary: Repository package for malscan
 Name: malscan-release
-Version: 1.0.0
+Version: 1.1.0
 Release: 1
 URL:     http://malscan.github.io
 License: GPLv2+
@@ -22,7 +22,8 @@ Repository installer package for malscan, a linux malware scanner
 %install
 rm -rf ${RPM_BUILD_ROOT}
 mkdir -p ${RPM_BUILD_ROOT}/etc/yum.repos.d/
-install -m  644 malscan.repo ${RPM_BUILD_ROOT}/etc/yum.repos.d/
+install -m 644 malscan.repo ${RPM_BUILD_ROOT}/etc/yum.repos.d/
+wget https://repo.malscan.org/RPM-GPG-KEY-Malscan --prefix ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -31,5 +32,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(-,root,root)
 
 %changelog
+* Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com>
+- Updated: Added GPG key to package.
 * Sat Jan 09 2016 Josh Grancell <josh@joshgrancell.com>
 - Initial packaging
