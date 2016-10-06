@@ -22,6 +22,7 @@ Repository installer package for malscan, a linux malware scanner
 %install
 rm -rf ${RPM_BUILD_ROOT}
 mkdir -p ${RPM_BUILD_ROOT}/etc/yum.repos.d/
+mkdir -p ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 install -m 644 malscan.repo ${RPM_BUILD_ROOT}/etc/yum.repos.d/
 install -m 644 RPM-GPG-KEY-Malscan ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 
