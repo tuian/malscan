@@ -34,7 +34,8 @@ cp /home/makerpm/rpmbuild/malscan/rpm-build/malscan-el.repo "$SOURCEDIR/malscan.
 
 ## Packaging the files
 cd "$TEMP"
-wget https://repo.malscan.org/RPM-GPG-KEY-Malscan -P "$SOURCEDIR/"
+cp /home/makerpm/rpmbuild/malscan/rpm-build/keys/RPM-GPG-KEY-Malscan-old "$SOURCEDIR/"
+cp /home/makerpm/rpmbuild/malscan/rpm-build/keys/RPM-GPG-KEY-Malscan "$SOURCEDIR/"
 tar -czvf "malscan-release-$VERSION.tar.gz" "malscan-release-$VERSION"
 
 # Moving the newly packaged files into the build sources directory

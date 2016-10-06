@@ -14,6 +14,7 @@ baseurl=https://repo.malscan.org/el/$releasever/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 failovermethod=roundrobin
 fastestmirror=1
 
@@ -23,5 +24,6 @@ baseurl=https://repo.malscan.org/unstable/el/$releasever/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 failovermethod=roundrobin
 fastestmirror=1
