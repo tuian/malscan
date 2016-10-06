@@ -1,7 +1,7 @@
 Summary: Linux malware scanner for web servers
 Name: malscan
 Version: 1.7.0
-Release: rc5.el7
+Release: rc6.el7
 URL:     https://github.com/jgrancell/malscan
 License: MIT
 Group: Applications/System
@@ -59,6 +59,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %doc /usr/local/share/man/man1/malscan.1
 
 %changelog
+* Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.7.0-rc6
+- Fixed: Logs will now have the correct date and time for each entry
+
 * Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.7.0-rc5
 - New: Added pid locking. Only one copy of malscan can run at a time, now.
 
