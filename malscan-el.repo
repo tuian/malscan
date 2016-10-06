@@ -13,7 +13,7 @@ name=Malscan repository - Enterprise Linux $releasever - $basearch
 baseurl=https://repo.malscan.org/el/$releasever/
 enabled=1
 gpgcheck=1
-gpgkey=/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
 failovermethod=roundrobin
 fastestmirror=1
 
@@ -22,6 +22,6 @@ name=Malscan repository - Enterprise Linux $releasever - $basearch
 baseurl=https://repo.malscan.org/unstable/el/$releasever/
 enabled=0
 gpgcheck=1
-gpgkey=/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
 failovermethod=roundrobin
 fastestmirror=1
