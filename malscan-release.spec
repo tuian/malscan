@@ -31,6 +31,8 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(-,root,root)
+%attr(644,root,root) /etc/yum.repos.d/malscan.repo
+%attr(644,root,root) /etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
 
 %changelog
 * Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com>
