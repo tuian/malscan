@@ -1,7 +1,7 @@
 Summary: Linux malware scanner for web servers
 Name: malscan
 Version: 1.7.0
-Release: rc3.el7
+Release: rc4.el7
 URL:     https://github.com/jgrancell/malscan
 License: MIT
 Group: Applications/System
@@ -59,6 +59,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %doc /usr/local/share/man/man1/malscan.1
 
 %changelog
+* Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.7.0-rc4
+- Fixed broken rc3 release
+
 * Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.7.0-rc3
 - Fixed: Configuration options can now only be set by the root user, not by a user in the malscan group (updates #12)
 
