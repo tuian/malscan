@@ -13,10 +13,10 @@ VERSION="$1"
 RELEASE="$2"
 
 # Deleting everything
-rm -rf "/home/makerpm/rpmbuild/malscan-release-1*"
-rm -rf "/home/makerpm/rpmbuild/BUILD/***"
-rm -rf "/home/makerpm/rpmbuild/BUILDROOT/***"
-rm -rf "/home/makerpm/rpmbuild/SOURCES/***"
+rm -rf /home/makerpm/rpmbuild/malscan-release-1*
+rm -rf /home/makerpm/rpmbuild/BUILD/***
+rm -rf /home/makerpm/rpmbuild/BUILDROOT/***
+rm -rf /home/makerpm/rpmbuild/SOURCES/***
 
 # Creating a temp working directory
 TEMP=$(mktemp -d)
