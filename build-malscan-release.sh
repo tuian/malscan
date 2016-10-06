@@ -20,23 +20,22 @@ rm -rf "/home/makerpm/rpmbuild/SOURCES/***"
 
 # Creating a temp working directory
 TEMP=$(mktemp -d)
-mkdir -p "$TEMP/malscan-release-$VERSION"
+SOURCEDIR = "$TEMP/malscan-release-$VERSION"
+mkdir -p "$SOURCEDIR"
 
 # Moving into the malscan directory
-cd /home/makerpm/rpmbuild/malscan/repository
-git fetch
-git pull
 cd /home/makerpm/rpmbuild/malscan/rpm-build
 git fetch
 git pull
 cd /home/makerpm/rpmbuild
 
 ## Creating the file structure for the SOURCE tarball
-rsync -avzP --exclude ".git" --exclude ".gitignore" --exclude ".codeclimate.yml" /home/makerpm/rpmbuild/malscan/repository/ "$TEMP/malscan-release-$VERSION/"
+cp /home/makerpm/rpmbuild/malscan/rpm-build/malscan-el.repo "$SOURCEDIR/malscan.repo"
 
 ## Packaging the files
 cd "$TEMP"
-tar -czvf "$TEMP/malscan-release-$VERSION.tar.gz" "malscan-release-$VERSION"
+wget https://repo.malscan.org/RPM-GPG-KEY-Malscan --prefix "$SOURCEDIR/"
+tar -czvf "$TEMP/malscan-release-$VERSION.tar.gz" "$SOURCEDIR"
 
 # Moving the newly packaged files into the build sources directory
 mv "$TEMP/malscan-release-$VERSION.tar.gz" "/home/makerpm/rpmbuild/SOURCES/"
