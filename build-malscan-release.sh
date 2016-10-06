@@ -20,7 +20,7 @@ rm -rf "/home/makerpm/rpmbuild/SOURCES/***"
 
 # Creating a temp working directory
 TEMP=$(mktemp -d)
-SOURCEDIR = "$TEMP/malscan-release-$VERSION"
+SOURCEDIR="$TEMP/malscan-release-$VERSION"
 mkdir -p "$SOURCEDIR"
 
 # Moving into the malscan directory
