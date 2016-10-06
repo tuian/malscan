@@ -1,6 +1,6 @@
 Summary: Repository package for malscan
 Name: malscan-release
-Version: 1.1.2
+Version: 1.1.3
 Release: el
 URL:     https://www.malscan.org
 License: MIT
