@@ -1,6 +1,6 @@
 Summary: Repository package for malscan
 Name: malscan-release
-Version: 1.1.3
+Version: 1.1.4
 Release: el
 URL:     https://www.malscan.org
 License: MIT
@@ -37,6 +37,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(644,root,root) /etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 
 %changelog
+* Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.1.4-el
+- Fixed empty GPG key.
+
 * Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.1.3-el
 - Added secondary signing key for older package compatibility.
 
