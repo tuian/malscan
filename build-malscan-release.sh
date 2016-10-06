@@ -54,3 +54,4 @@ echo "Staging of all malscan files completed. Beginning build process."
 
 ## Creating the RPM
 rpmbuild -ba /home/makerpm/rpmbuild/SPECS/malscan-release.spec
+rpm --define="%_gpg_name Josh Grancell <josh@joshgrancell.com>" --resign "/home/makerpm/rpmbuild/RPMS/x86_64/malscan-release-$1-$2.x86_64.rpm"
