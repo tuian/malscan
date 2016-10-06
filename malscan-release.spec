@@ -26,8 +26,6 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 install -m 644 malscan.repo ${RPM_BUILD_ROOT}/etc/yum.repos.d/
 install -m 644 RPM-GPG-KEY-Malscan ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 install -m 644 RPM-GPG-KEY-Malscan-old ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
-rpm --import {%RPM_BUILD_ROOT}/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
-rpm --import {%RPM_BUILD_ROOT}/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
