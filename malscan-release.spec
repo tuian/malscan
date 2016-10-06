@@ -1,6 +1,6 @@
 Summary: Repository package for malscan
 Name: malscan-release
-Version: 1.1.4
+Version: 1.1.5
 Release: el
 URL:     https://www.malscan.org
 License: MIT
@@ -26,6 +26,8 @@ mkdir -p ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 install -m 644 malscan.repo ${RPM_BUILD_ROOT}/etc/yum.repos.d/
 install -m 644 RPM-GPG-KEY-Malscan ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
 install -m 644 RPM-GPG-KEY-Malscan-old ${RPM_BUILD_ROOT}/etc/pki/rpm-gpg/
+rpm --import {%RPM_BUILD_ROOT}/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan
+rpm --import {%RPM_BUILD_ROOT}/etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -37,6 +39,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(644,root,root) /etc/pki/rpm-gpg/RPM-GPG-KEY-Malscan-old
 
 %changelog
+* Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.1.4-el
+- Added GPG import.
+
 * Thu Oct 06 2016 Josh Grancell <josh@joshgrancell.com> 1.1.4-el
 - Fixed empty GPG key.
 
